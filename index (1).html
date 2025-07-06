@@ -1,0 +1,132 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Portfolio de Compétences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Barre de navigation -->
+    <nav class="bg-blue-600 text-white p-4 sticky top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Cheick Seydou Diallo</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:underline">Accueil</a></li>
+                <li><a href="#skills" class="hover:underline">Compétences</a></li>
+                <li><a href="#about" class="hover:underline">À propos</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Héroïque -->
+    <section id="home" class="bg-blue-500 text-white py-20 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-4">Bienvenue sur mon portfolio</h2>
+            <p class="text-lg mb-6">Découvrez mes compétences et mes réalisations</p>
+            <a href="#skills" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200">Voir mes compétences</a>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Mes Compétences</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+                <!-- Compétence 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-xl font-semibold mb-2">Créateur de site web</h3>
+                    <p class="text-gray-600"> Expert en développement web avec HTML, CSS et JavaScript.</p>
+                </div>
+                <!-- Compétence 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-xl font-semibold mb-2">Maitrise du language Python</h3>
+                    <p class="text-gray-600">J'ai une connaissance de approfondie en python me permettant d'aider toute personne dans le besoin.</p>
+                </div>
+                <!-- Compétence 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-xl font-semibold mb-2">Maitrise le language SQL</h3>
+                    <p class="text-gray-600">Je peux créer des bases de données pour recueillir toute les informations de vos clients .</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="bg-gray-200 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">À propos de moi</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                Je suis Cheick Seydou Diallo, un professionnel passionné avec une expertise dans la création de site web. J'ai travaillé sur la création d'un site web pour souhaiter un joyeux anniversaire que mon client m'avais demander de créer. Mon objectif est de vous un service rémarquable et très respectueux de vos demandes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Me contacter</h2>
+            <p class="text-lg text-gray-700 mb-4">N'hésitez pas à me contacter pour discuter de vos projets !</p>
+            <p class="text-gray-600">Email : <a href="mailto:diallocheickseydou33@gmail.com" class="text-blue-600 hover:underline">Voici mon mail.</a></p>
+            <p class="text-gray-600">WhatsApp : <a href="https://wa.me/+2250501864539" class="text-blue-600 hover:underline" >Mon compte whatsApp</a> </p>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-blue-600 text-white py-4 text-center">
+        <p>&copy; 2025 Cheick Seydou Diallo. Tous droits réservés.</p>
+    </footer>
+
+    <!-- JavaScript pour la navigation fluide -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
