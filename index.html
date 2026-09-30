@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diallo Cheick Seydou — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#">Diallo <span>Cheick Seydou</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="Ouvrir le menu">
+        <span></span>
+      </label>
+      <div class="nav-links">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href="#contact">Me contacter</a>
+    </div>
+  </nav>
+
+  <header class="container hero">
+    <div>
+      <div class="eyebrow">Diallo Cheick Seydou • Disponible pour de nouveaux projets</div>
+      <h1>Je conçois des <span>applications</span>, des expériences et des solutions digitales.</h1>
+      <p>
+        Passionné par la création d’applications, le design d’interfaces et les réseaux informatiques.
+        Je développe des produits utiles, modernes et adaptés aux usages réels.
+      </p>
+      <div class="hero-actions">
+        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+        <a href="#competences" class="btn btn-ghost">Mes compétences</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat">
+        <strong>02</strong>
+        <span>Projets majeurs présentés</span>
+      </div>
+      <div class="stat">
+        <strong>03</strong>
+        <span>Domaines : App • Réseau • Design</span>
+      </div>
+      <div class="stat">
+        <strong>Flutter</strong>
+        <span>Développement mobile & multiplateforme</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="apropos">
+    <div class="container">
+      <h2 class="section-title">À propos</h2>
+      <p class="section-sub">
+        Je construis des produits numériques en alliant développement d’applications,
+        sensibilité design et compréhension des infrastructures réseau.
+        Mon objectif : créer des solutions simples, fiables et agréables à utiliser.
+      </p>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="container">
+      <h2 class="section-title">Compétences</h2>
+      <p class="section-sub">Trois piliers qui structurent mon approche et mes projets.</p>
+      <div class="skills">
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <path d="M12 18h.01" />
+            </svg>
+          </div>
+          <h3>Création d’applications</h3>
+          <p>
+            Développement d’applications mobiles et multiplateformes avec Flutter.
+            Architecture claire, stockage local, sécurité, interfaces modernes et
+            fonctionnalités orientées utilisateur.
+          </p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </div>
+          <h3>Réseau</h3>
+          <p>
+            Connaissances en réseaux informatiques, analyse de trafic, protocoles
+            (TCP/IP, DNS, HTTP/HTTPS) et diagnostic. Utilisation d’outils comme Wireshark.
+          </p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r="2.5" />
+              <circle cx="6" cy="12" r="2" />
+              <circle cx="17" cy="15.5" r="2.5" />
+              <circle cx="9.5" cy="18.5" r="1.5" />
+            </svg>
+          </div>
+          <h3>Design</h3>
+          <p>
+            Conception d’interfaces épurées et modernes. Attention portée à l’UX,
+            à la hiérarchie visuelle, aux couleurs et à la lisibilité sur mobile.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="container">
+      <h2 class="section-title">Projets</h2>
+      <p class="section-sub">Une sélection de projets qui illustrent mon savoir-faire.</p>
+      <div class="projects">
+        <article class="project-card">
+          <div class="project-banner banner-lumen">Lumen</div>
+          <div class="project-body">
+            <div class="tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Mobile & Desktop</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Sécurité</span>
+            </div>
+            <h3>Lumen — Gestion personnelle</h3>
+            <p>
+              Application multiplateforme pour organiser notes, contacts, budget,
+              mesures corporelles, garde-robe et fichiers. Interface moderne,
+              stockage local avec Hive, verrouillage PIN + biométrie, export de données
+              et expérience utilisateur soignée.
+            </p>
+            <div class="project-meta">Création d’application • Design • Architecture Flutter</div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-banner banner-djassa">Djassa Delivery</div>
+          <div class="project-body">
+            <div class="tags">
+              <span class="tag">Application mobile</span>
+              <span class="tag">Logistique</span>
+              <span class="tag">Mobile Money</span>
+              <span class="tag">Admin Web</span>
+            </div>
+            <h3>Djassa Delivery — Plateforme de livraison</h3>
+            <p>
+              Solution de livraison conçue pour la Côte d’Ivoire et le marché africain.
+              Elle connecte clients, livreurs et administration : création de demandes,
+              suivi de colis, messagerie, paiements Wave / Orange Money / MTN Money,
+              espace livreur et console d’administration.
+            </p>
+            <div class="project-meta">Produit mobile • Paiements • Logistique locale</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <h2>Travaillons ensemble</h2>
+          <p>
+            Un projet d’application, un besoin en design ou une collaboration ?
+            N’hésitez pas à me contacter.
+          </p>
+          <div class="contact-details">
+            <p><strong>Email :</strong> <a href="mailto:diallocheickseydou33@gmail.com">diallocheickseydou33@gmail.com</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+2250501864539">+225 05 01 86 45 39</a> / <a href="tel:+2250706952784">+225 07 06 95 27 84</a></p>
+            <p><strong>WhatsApp :</strong> <a href="https://wa.me/2250501864539" target="_blank" rel="noopener">+225 05 01 86 45 39</a></p>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:diallocheickseydou33@gmail.com">Envoyer un email</a>
+          <a class="btn btn-ghost" href="https://wa.me/2250501864539" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost" href="https://github.com/cheick16" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 — Diallo Cheick Seydou. Création d’applications • Réseau • Design.
+    </div>
+  </footer>
+</body>
+</html>
